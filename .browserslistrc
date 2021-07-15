@@ -1,0 +1,9 @@
+defaults
+not android >= 89
+not and_chr >= 89
+not and_ff >= 86
+not and_qq >= 10.4
+not and_uc >= 12.12
+not op_mob >= 62
+not ios_saf >= 13.4
+not op_mini all
