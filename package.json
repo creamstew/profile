@@ -13,6 +13,18 @@
     "type-check": "./node_modules/typescript/bin/tsc --pretty --noEmit",
     "test": "jest --passWithNoTests"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format",
+      "yarn test"
+    ]
+  },
   "dependencies": {
     "@types/react": "^17.0.14",
     "next": "11.0.1",
