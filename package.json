@@ -6,6 +6,7 @@
     "dev": "run-p dev:*",
     "dev:next": "NODE_OPTIONS='--inspect' next dev -p 8080",
     "dev:path": "pathpida --ignorePath .gitignore --watch",
+    "dev:api": "aspida --watch",
     "build": "pathpida --ignorePath .gitignore && next build",
     "start": "next start",
     "prepare": "husky install",

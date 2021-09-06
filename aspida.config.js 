@@ -1,0 +1,1 @@
+module.exports = { input: 'api', outputEachDir: true, baseURL: `https://${process.env.MICRO_CMS_SERVICE_ID}.microcms.io/api/v1` }
