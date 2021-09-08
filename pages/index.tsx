@@ -14,20 +14,18 @@ const Page: NextPage<PageProps> = (props) => {
   const { blogs } = props;
 
   return (
-    <main>
-      <section>
-        <h2>ブログ一覧</h2>
-        <ul>
-          {blogs.contents.map((blog) => (
-            <li key={blog.id}>
-              <Link href={`/blogs/${blog.id}`}>
-                <a>{blog.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <>
+      <h2>ブログ一覧</h2>
+      <ul>
+        {blogs.contents.map((blog) => (
+          <li key={blog.id}>
+            <Link href={`/blogs/${blog.id}`}>
+              <a>{blog.title}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
