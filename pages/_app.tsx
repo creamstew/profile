@@ -1,9 +1,16 @@
-import '../styles/globals.css';
-
+import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} />;
+import { Layout } from '../components/Layout';
+
+function App({ Component, pageProps }: AppProps): React.ReactElement {
+  return (
+    <ChakraProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ChakraProvider>
+  );
 }
 
-export default MyApp;
+export default App;
