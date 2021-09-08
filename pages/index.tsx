@@ -1,3 +1,4 @@
+import { Box, Text, UnorderedList, VStack } from '@chakra-ui/react';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
@@ -8,6 +9,7 @@ import { BlogsResponse } from '../types/blog';
 type StaticProps = {
   blogs: BlogsResponse;
 };
+
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Page: NextPage<PageProps> = (props) => {
@@ -15,16 +17,24 @@ const Page: NextPage<PageProps> = (props) => {
 
   return (
     <>
-      <h2>ブログ一覧</h2>
-      <ul>
-        {blogs.contents.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blogs/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <UnorderedList listStyleType={'none'}>
+        <VStack>
+          {blogs.contents.map((blog) => (
+            <li key={blog.id} list-style-type={'none'}>
+              <Box padding={'12px'}>
+                <Link href={`/blogs/${blog.id}`} passHref>
+                  <Text fontSize={'lg'} cursor={'pointer'}>
+                    {blog.title}
+                  </Text>
+                </Link>
+                <Text fontSize={'sm'} color={'gray'}>
+                  {blog.publishedAt.substring(0, blog.publishedAt.indexOf('T'))}
+                </Text>
+              </Box>
+            </li>
+          ))}
+        </VStack>
+      </UnorderedList>
     </>
   );
 };
@@ -32,7 +42,7 @@ const Page: NextPage<PageProps> = (props) => {
 export const getStaticProps: GetStaticProps<StaticProps> = async () => {
   const blogsPromise = client.get<BlogsResponse>({
     endpoint: 'blogs',
-    queries: { fields: 'id,title' },
+    queries: { fields: 'id,title,publishedAt' },
   });
 
   const [blogs] = await Promise.all([blogsPromise]);
