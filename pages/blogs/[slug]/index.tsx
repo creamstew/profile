@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
       endpoint: 'blogs',
       contentId: id,
       queries: {
-        fields: 'id,title,body,publishedAt,tags',
+        fields: 'id,title,body,publishedAt',
       },
     });
 
