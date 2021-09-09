@@ -1,15 +1,61 @@
-import { Center, Flex, Text } from '@chakra-ui/react';
+import { Center, HStack, Spacer, Text, useMediaQuery } from '@chakra-ui/react';
 import Link from 'next/link';
 import * as React from 'react';
 
 export const Header: React.VFC = () => {
-  return (
-    <Center borderBottom={'1px solid rgba(0,0,0,0.15)'} boxShadow={'0 0 1px rgb(0 0 0 / 8%)'}>
-      <Flex bg={'white'} height={'64px'} align={'center'}>
+  const [mobile] = useMediaQuery('(max-width: 640px');
+
+  return mobile ? (
+    <Center
+      bg={'white'}
+      height={'64px'}
+      borderBottom={'1px solid rgba(0,0,0,0.15)'}
+      boxShadow={'0 0 1px rgb(0 0 0 / 8%)'}
+      paddingRight={'7%'}
+      paddingLeft={'7%'}
+    >
+      <Link href="/" passHref>
+        <Text fontWeight={'bold'} cursor={'pointer'}>
+          creamstew.dev
+        </Text>
+      </Link>
+      <Spacer />
+      <HStack spacing={4}>
         <Link href="/" passHref>
-          <Text cursor={'pointer'}>creamstew.dev</Text>
+          <Text fontWeight={'bold'} cursor={'pointer'}>
+            Profile
+          </Text>
         </Link>
-      </Flex>
+        <Text fontWeight={'bold'} cursor={'pointer'}>
+          Blog
+        </Text>
+      </HStack>
+    </Center>
+  ) : (
+    <Center
+      bg={'white'}
+      height={'64px'}
+      borderBottom={'1px solid rgba(0,0,0,0.15)'}
+      boxShadow={'0 0 1px rgb(0 0 0 / 8%)'}
+      paddingRight={'20%'}
+      paddingLeft={'20%'}
+    >
+      <Link href="/" passHref>
+        <Text fontWeight={'bold'} cursor={'pointer'}>
+          creamstew.dev
+        </Text>
+      </Link>
+      <Spacer />
+      <HStack spacing={6}>
+        <Link href="/" passHref>
+          <Text fontWeight={'bold'} cursor={'pointer'}>
+            Profile
+          </Text>
+        </Link>
+        <Text fontWeight={'bold'} cursor={'pointer'}>
+          Blog
+        </Text>
+      </HStack>
     </Center>
   );
 };
