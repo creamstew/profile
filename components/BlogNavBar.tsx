@@ -1,12 +1,13 @@
-import { Box, Center, Stack, Text, useMediaQuery } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
+import { Box, Center, Stack, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
 export const BlogNavBar: React.VFC = () => {
   const router = useRouter();
-  const mobile = useMediaQuery('(max-width: 640px');
+  const pc = useBreakpointValue({ base: false, pc: true });
 
-  return mobile ? (
+  return !pc ? (
     <Center width={'100%'}>
       <Text
         align={'center'}

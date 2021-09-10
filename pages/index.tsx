@@ -1,4 +1,5 @@
-import { Box, Center, Stack, Text, UnorderedList, useMediaQuery } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
+import { Box, Center, Stack, Text, UnorderedList } from '@chakra-ui/react';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
@@ -15,9 +16,9 @@ type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Page: NextPage<PageProps> = (props) => {
   const { blogs } = props;
-  const mobile = useMediaQuery('(max-width: 640px');
+  const pc = useBreakpointValue({ base: false, pc: true });
 
-  return mobile ? (
+  return !pc ? (
     <Stack marginTop={'8px'}>
       <BlogNavBar />
       <Box>
