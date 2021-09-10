@@ -9,7 +9,6 @@ const breakpoints = createBreakpoints({
   xl: '80em',
   '2xl': '96em',
   // 拡張
-  pc: '640px',
 });
 
 export const theme = extendTheme({

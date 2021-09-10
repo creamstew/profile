@@ -4,7 +4,7 @@ import Link from 'next/link';
 import * as React from 'react';
 
 export const Header: React.VFC = () => {
-  const pc = useBreakpointValue({ base: false, pc: true });
+  const pc = useBreakpointValue({ base: false, md: true });
 
   return !pc ? (
     <Center

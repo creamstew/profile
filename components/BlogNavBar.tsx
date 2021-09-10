@@ -5,7 +5,7 @@ import * as React from 'react';
 
 export const BlogNavBar: React.VFC = () => {
   const router = useRouter();
-  const pc = useBreakpointValue({ base: false, pc: true });
+  const pc = useBreakpointValue({ base: false, md: true });
 
   return !pc ? (
     <Center width={'100%'}>
@@ -45,9 +45,10 @@ export const BlogNavBar: React.VFC = () => {
       </Text>
     </Center>
   ) : (
-    <Box width={'10%'} padding={'10px'}>
+    <Box width={'12%'} padding={'10px'}>
       <Stack>
         <Text
+          align={'center'}
           padding={'5px'}
           fontSize={'lg'}
           cursor={'pointer'}
@@ -59,6 +60,7 @@ export const BlogNavBar: React.VFC = () => {
           Blog
         </Text>
         <Text
+          align={'center'}
           padding={'5px'}
           fontSize={'lg'}
           cursor={'pointer'}
@@ -69,6 +71,7 @@ export const BlogNavBar: React.VFC = () => {
           Zenn
         </Text>
         <Text
+          align={'center'}
           padding={'5px'}
           fontSize={'lg'}
           cursor={'pointer'}

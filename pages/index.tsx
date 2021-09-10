@@ -16,7 +16,7 @@ type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Page: NextPage<PageProps> = (props) => {
   const { blogs } = props;
-  const pc = useBreakpointValue({ base: false, pc: true });
+  const pc = useBreakpointValue({ base: false, md: true });
 
   return !pc ? (
     <Stack marginTop={'8px'}>
