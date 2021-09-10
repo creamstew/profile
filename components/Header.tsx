@@ -3,7 +3,7 @@ import Link from 'next/link';
 import * as React from 'react';
 
 export const Header: React.VFC = () => {
-  const [mobile] = useMediaQuery('(max-width: 640px');
+  const mobile = useMediaQuery('(max-width: 640px');
 
   return mobile ? (
     <Center
