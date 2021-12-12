@@ -1,4 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import Link from 'next/link';
 import React from 'react';
 
 import { client } from '../lib/microCmsClient';
@@ -17,8 +18,12 @@ const Page: NextPage<PageProps> = (props) => {
     <ul>
       {blogs.contents.map((blog) => (
         <li key={blog.id}>
-          {blog.title}
-          {blog.publishedAt.substring(0, blog.publishedAt.indexOf('T'))}
+          <Link href={`/blogs/${blog.id}`} passHref>
+            <a>
+              {blog.title}
+              {blog.publishedAt.substring(0, blog.publishedAt.indexOf('T'))}
+            </a>
+          </Link>
         </li>
       ))}
     </ul>

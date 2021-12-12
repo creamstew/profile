@@ -4,7 +4,7 @@ import { AspidaClient, dataToURLString } from 'aspida'
 // prettier-ignore
 import { Methods as Methods0 } from './blogs'
 // prettier-ignore
-import { Methods as Methods1 } from './blogs/_slug@string'
+import { Methods as Methods1 } from './blogs/_id@string'
 
 // prettier-ignore
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
@@ -14,7 +14,7 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 
   return {
     blogs: {
-      _slug: (val1: string) => {
+      _id: (val1: string) => {
         const prefix1 = `${PATH0}/${val1}`
 
         return {

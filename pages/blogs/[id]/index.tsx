@@ -46,11 +46,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   const { params } = context;
-  if (!params?.slug) {
+  if (!params?.id) {
     throw new Error('Error: ID not found');
   }
 
-  const id = toStringId(params.slug);
+  const id = toStringId(params.id);
   try {
     const blog = await client.get<BlogResponse>({
       endpoint: 'blogs',

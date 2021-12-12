@@ -2,8 +2,8 @@
 // prettier-ignore
 export const pagesPath = {
   blogs: {
-    _slug: (slug: string | number) => ({
-      $url: (url?: { hash?: string }) => ({ pathname: '/blogs/[slug]' as const, query: { slug }, hash: url?.hash })
+    _id: (id: string | number) => ({
+      $url: (url?: { hash?: string }) => ({ pathname: '/blogs/[id]' as const, query: { id }, hash: url?.hash })
     })
   },
   $url: (url?: { hash?: string }) => ({ pathname: '/' as const, hash: url?.hash })
