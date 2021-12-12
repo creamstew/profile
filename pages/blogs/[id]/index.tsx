@@ -26,7 +26,7 @@ const Page: NextPage<PageProps> = (props) => {
       </nav>
       <main>
         <header>
-          <h1>{blog.title}</h1>
+          <h1 className="text-red-800">{blog.title}</h1>
           <ul>
             <li>publishedAt: {blog.publishedAt}</li>
           </ul>

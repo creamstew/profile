@@ -23,5 +23,4 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/'],
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
-  snapshotSerializers: ['@emotion/jest/serializer'],
 };
