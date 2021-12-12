@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",
-    "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@types/react": "^17.0.14",
