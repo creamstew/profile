@@ -1,7 +1,9 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 
+import { createOgImage } from '../../../lib/createOgImage';
 import { client } from '../../../lib/microCmsClient';
 import { BlogResponse } from '../../../types/blog';
 import { toStringId } from '../../../utils/toStringId';
@@ -14,12 +16,30 @@ const Page: NextPage<PageProps> = (props) => {
   const { blog } = props;
   const router = useRouter();
 
+  const { ogImageUrl } = createOgImage(
+    blog.image.url,
+    blog.title,
+    blog.author.find((author) => author)
+  );
+
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
+  const baseUrl = 'https://creamstew.vercel.app';
+
   return (
     <>
+      <Head>
+        <title>{blog.title}</title>
+        <meta property="og:site_name" content="creamstew.dev" />
+        <meta property="og:title" content={`${blog.title} - creamstew.dev`} />
+        <meta property="og:description" content="Tech Blog by creamstew" />
+        <meta property="og:url" content={`${baseUrl}/blogs/${blog.id}`} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <article>
         <div>
           <header>
@@ -74,7 +94,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
       endpoint: 'blogs',
       contentId: id,
       queries: {
-        fields: 'id,title,body,publishedAt',
+        fields: 'id,title,body,image,author,publishedAt',
       },
     });
 
