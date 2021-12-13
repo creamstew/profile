@@ -1,6 +1,8 @@
 {
   "plugins": [
     "postcss-flexbugs-fixes",
+    "tailwindcss",
+    "autoprefixer",
     [
       "postcss-preset-env",
       {
