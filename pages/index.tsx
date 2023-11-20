@@ -1,6 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
-import React from 'react';
+
 
 import { client } from '../lib/microCmsClient';
 import { BlogsResponse } from '../types/blog';

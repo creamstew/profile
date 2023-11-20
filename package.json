@@ -9,10 +9,8 @@
     "dev:api": "aspida --watch",
     "build": "pathpida --ignorePath .gitignore && next build",
     "start": "next start",
-    "format": "./node_modules/prettier/bin-prettier.js . -w",
-    "lint": "./node_modules/eslint/bin/eslint.js --fix --max-warnings=0",
-    "lint-all": "./node_modules/eslint/bin/eslint.js . --fix --max-warnings=0",
-    "type-check": "./node_modules/typescript/bin/tsc --pretty --noEmit",
+    "fmt": "biome format --write .",
+    "lint": "biome lint --apply .",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {

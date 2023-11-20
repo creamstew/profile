@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
 
 import { createOgImage } from '../../../lib/createOgImage';
 import { client } from '../../../lib/microCmsClient';
@@ -19,7 +18,7 @@ const Page: NextPage<PageProps> = (props) => {
   const { ogImageUrl } = createOgImage(
     blog.image.url,
     blog.title,
-    blog.author.find((author) => author)
+    blog.author.find((author) => author),
   );
 
   if (router.isFallback) {
@@ -67,7 +66,10 @@ const Page: NextPage<PageProps> = (props) => {
       >
         <div className="xl:col-span-3 xl:row-span-2 xl:pb-0 divide-y divide-gray-200 dark:divide-gray-700">
           {blog.body && (
-            <article className="pt-10 pb-8 max-w-none prose" dangerouslySetInnerHTML={{ __html: blog.body }} />
+            <article
+              className="pt-10 pb-8 max-w-none prose"
+              dangerouslySetInnerHTML={{ __html: blog.body }}
+            />
           )}
         </div>
       </div>
