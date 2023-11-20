@@ -12,6 +12,9 @@
       "all": true,
       "style": {
         "useNamingConvention": "off"
+      },
+      "nursery": {
+        "noUselessLoneBlockStatements": "off"
       }
     }
   },

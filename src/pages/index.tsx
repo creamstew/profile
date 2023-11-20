@@ -1,9 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
 
-
-import { client } from '../lib/microCmsClient';
-import { BlogsResponse } from '../types/blog';
+import { client } from '@/lib/microCmsClient';
+import { BlogsResponse } from '@/types/blog';
 
 type StaticProps = {
   blogs: BlogsResponse;

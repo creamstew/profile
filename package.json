@@ -6,8 +6,9 @@
     "dev": "NODE_OPTIONS='--inspect' next dev -p 8080",
     "build": "next build",
     "start": "next start",
-    "fmt": "biome format --write .",
-    "lint": "biome lint --apply .",
+    "fmt": "biome format --write ./src",
+    "lint": "biome lint --apply ./src",
+    "fix": "biome check --apply ./src",
     "test": "vitest run"
   },
   "dependencies": {
