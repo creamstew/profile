@@ -1,4 +1,4 @@
-import { Header } from '../components/Header';
+import { Header } from './Header';
 
 export const Layout: React.VFC<{ children: React.ReactElement }> = ({ children }) => {
   return (

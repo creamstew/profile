@@ -2,10 +2,10 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } fro
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { toStringId } from '../../../utils/toStringId';
 import { createOgImage } from '../../../lib/createOgImage';
 import { client } from '../../../lib/microCmsClient';
 import { BlogResponse } from '../../../types/blog';
-import { toStringId } from '../../../utils/toStringId';
 type StaticProps = {
   blog: BlogResponse;
 };
