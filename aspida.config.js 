@@ -1,1 +1,0 @@
-module.exports = { input: 'api', baseURL: `https://${process.env.MICRO_CMS_SERVICE_ID}.microcms.io/api/v1` }
