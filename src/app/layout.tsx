@@ -1,17 +1,17 @@
 import './globals.css';
 
 import { Layout } from '@/components/Layout';
-
+import { Fira_Mono } from 'next/font/google';
 import type { ReactNode } from 'react';
 
+const firaMono = Fira_Mono({
+  weight: '700',
+  display: 'swap',
+  subsets: ['latin'],
+});
+
 const RootLayout = ({ children }: { children: ReactNode }) => (
-  <html lang="ja">
-    <head>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&display=swap"
-        rel="stylesheet"
-      />
-    </head>
+  <html lang="ja" className={firaMono.className}>
     <body>
       <Layout>{children}</Layout>
     </body>
