@@ -10,6 +10,7 @@
     "lint": "biome lint --apply ./src",
     "fix": "biome check --apply ./src",
     "test": "vitest run",
+    "knip": "knip",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "base64url": "^3.0.1",
     "husky": "^8.0.0",
     "jsdom": "^22.1.0",
+    "knip": "^2.41.6",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
