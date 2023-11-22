@@ -22,18 +22,22 @@ export const getBlogs = async () => {
 };
 
 export const getBlogDetail = async (slug: string) => {
-  const res = await client.get<BlogResponse>({
-    customRequestInit: {
-      next: {
-        revalidate: 60,
+  try {
+    const res = await client.get<BlogResponse>({
+      customRequestInit: {
+        next: {
+          revalidate: 60,
+        },
       },
-    },
-    endpoint: "blogs",
-    contentId: slug,
-    queries: {
-      fields: "id,title,body,image,author,publishedAt",
-    },
-  });
+      endpoint: "blogs",
+      contentId: slug,
+      queries: {
+        fields: "id,title,body,image,author,publishedAt",
+      },
+    });
 
-  return res;
+    return res;
+  } catch (_) {
+    return undefined;
+  }
 };
