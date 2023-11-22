@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { createOgImage } from '@/lib/createOgImage';
@@ -15,11 +16,13 @@ export const generateStaticParams = async () => {
   return [...paths];
 };
 
-const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
+export async function generateMetadata({
+  params,
+}: { params: { slug: string } }): Promise<Metadata> {
   const blog = await getBlogDetail(params.slug);
 
   if (!blog) {
-    notFound();
+    return {};
   }
 
   const { ogImageUrl } = createOgImage(
@@ -30,18 +33,35 @@ const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
 
   const baseUrl = 'https://creamstew.vercel.app';
 
+  return {
+    title: blog.title,
+    openGraph: {
+      title: blog.title,
+      description: 'Tech Blog by creamstew',
+      url: `${baseUrl}/blogs/${blog.id}`,
+      siteName: 'creamstew.dev',
+      images: [
+        {
+          url: ogImageUrl,
+        },
+      ],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+    },
+  };
+}
+
+const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
+  const blog = await getBlogDetail(params.slug);
+
+  if (!blog) {
+    notFound();
+  }
+
   return (
     <>
-      <head>
-        <title>{blog.title}</title>
-        <meta property="og:site_name" content="creamstew.dev" />
-        <meta property="og:title" content={`${blog.title} - creamstew.dev`} />
-        <meta property="og:description" content="Tech Blog by creamstew" />
-        <meta property="og:url" content={`${baseUrl}/blogs/${blog.id}`} />
-        <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </head>
       <article>
         <div>
           <header>

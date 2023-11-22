@@ -1,10 +1,10 @@
-import { BlogResponse, BlogsResponse } from "@/types/blog";
-import { createClient } from "microcms-js-sdk";
+import { BlogResponse, BlogsResponse } from '@/types/blog';
+import { createClient } from 'microcms-js-sdk';
 
 // Initialize Client SDK.
 const client = createClient({
-  serviceDomain: "creamstew", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
-  apiKey: process.env.MICRO_CMS_API_KEY || "",
+  serviceDomain: 'creamstew', // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
+  apiKey: process.env.MICRO_CMS_API_KEY || '',
 });
 
 export const getBlogs = async () => {
@@ -14,8 +14,8 @@ export const getBlogs = async () => {
         revalidate: 60,
       },
     },
-    endpoint: "blogs",
-    queries: { fields: "id,title,publishedAt" },
+    endpoint: 'blogs',
+    queries: { fields: 'id,title,publishedAt' },
   });
 
   return res.contents;
@@ -29,10 +29,10 @@ export const getBlogDetail = async (slug: string) => {
           revalidate: 60,
         },
       },
-      endpoint: "blogs",
+      endpoint: 'blogs',
       contentId: slug,
       queries: {
-        fields: "id,title,body,image,author,publishedAt",
+        fields: 'id,title,body,image,author,publishedAt',
       },
     });
 
