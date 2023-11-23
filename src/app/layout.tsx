@@ -9,18 +9,19 @@ const murecho = Murecho({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-murecho',
-})
- 
+});
+
 const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-roboto-mono',
-})
+});
 
 const siteName = 'creamstew.dev';
 const description = 'Tech Blog by creamstew';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://creamstew.vercel.app'),
   title: {
     default: siteName,
     template: `%s - ${siteName}`,
