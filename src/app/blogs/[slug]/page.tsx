@@ -49,13 +49,6 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: blog.title,
-      description: 'Tech Blog by creamstew',
-      images: [
-        {
-          url: ogImageUrl,
-        },
-      ],
     },
   };
 }
